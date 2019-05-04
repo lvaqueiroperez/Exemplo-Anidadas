@@ -1,4 +1,3 @@
-
 package aplicacionanidadas;
 
 import java.awt.Color;
@@ -10,47 +9,43 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Locais {
-    
-     JPanel panel; // = new JPanel();
+
+    JPanel panel; // = new JPanel();
     JButton boton;
     JFrame marco;
-    
-    public Locais(){
+
+    public Locais() {
         marco = new JFrame();
-        panel = new JPanel ();
-        boton = new JButton(" Pon cor");        
-        marco.setSize(500, 200);  
-        
+        panel = new JPanel();
+        boton = new JButton(" Pon cor");
+        marco.setSize(500, 200);
+
         panel.add(boton);
         marco.add(panel);
-    //    Accion ac = new Accion();
-    //    boton.addActionListener(new Accion());
-        
+        //    Accion ac = new Accion();
+        //    boton.addActionListener(new Accion());
+
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         marco.setVisible(true);
-        
-    }
-    public void activar(){
-         
-        
-           class Accion implements ActionListener{
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
-           panel.setBackground(Color.GREEN);
-           Toolkit.getDefaultToolkit().beep();
+    }
+
+    //***CREAR EVENTOS CON CLASES INTERNAS LOCALES***
+    public void activar() {
+        //CLASE LOCAL DENTRO DEL MÉTODO "activar" QUE IMPLEMENTA LA INTERFAZ NECESARIA
+        //Y SUS MÉTODOS
+        class Accion implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel.setBackground(Color.GREEN);
+                Toolkit.getDefaultToolkit().beep();
+            }
         }
-           } 
-         boton.addActionListener(new Accion());
-        
-    
-    }
-  
+        //PARA AÑADIR EL EVENTO AL COMPONENTE, PONEMOS COMO PARÁMETROS DEL MÉTODO
+        //"addActionListener" UN OBJETO DE LA CLASE LOCAL
+        boton.addActionListener(new Accion());
 
-    
-    
-    
-    
-    
-    
+    }
+
 }
